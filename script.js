@@ -1,9 +1,9 @@
 const gameBoard = (function () {
     let _board = [[null, null, null],
                 [null, null, null],
-                [null, null, null]];   
-                
-    return {_board};
+                [null, null, null]];
+
+    return {};
 })();
 
 const displayController = (function () {
@@ -11,12 +11,12 @@ const displayController = (function () {
         
     }
 
-    return {update};
+    return { update };
 })();
 
-const player = function(mark) {
+const player = function (mark) {
     let _mark = mark;
 }
 
 const playerOne = player('X');
-const playerTWo = player('O');
+const playerTwo = player('O');

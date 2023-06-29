@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Londrina Solid';
+    src: url(./fonts/LondrinaSolid-Regular.ttf) format("truetype");
+}
+
+* {
+    font-family: 'Londrina Solid';
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: lightgoldenrodyellow;
+    overflow: auto;
+}
+
+.heading {
+    background-color: #06d6a0;
+    width: 45%;
+    margin-top: 5vh;
+    margin-left: 27.5%;
+    padding: 3vh 0;
+}
+
+.heading h1 {
+    font-size: calc(calc(3vw + 5vh) / 2);
+    text-align: center;
+}
+
+.board {
+    background-color: #26547c;
+    width: 45%;
+    height: 60vh;
+    margin-left: 27.5%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 20vh 20vh 20vh;
+    grid-gap: 0;
+}
+
+.grid {
+    height: 100%;
+    border: #ffd166 2px solid;
+}
+
+.grid p {
+    font-size: calc(calc(3vw + 5vh) * 1.75);
+    text-align: center;
+}
+
+.result {
+    background-color: #06d6a0;
+    width: 45%;
+    margin-left: 27.5%;
+    padding: 3vh 0;
+}
+
+.result h1 {
+    font-size: calc(calc(3vw + 5vh) / 2);
+    text-align: center;
+}
+
+#reset {
+    background-color: #06d6a0;
+    width: 45%;
+    margin-top: 5vh;
+    margin-left: 27.5%;
+    padding: 3vh 0;
+    border: none;
+    font-size: calc(calc(3vw + 5vh) / 2);
+    text-align: center;
+}
