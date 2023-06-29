@@ -92,13 +92,16 @@ const displayController = (function () {
             || gameBoard.getStatus() === 'O wins'
             || gameBoard.getStatus() === 'Tie') {
 
-            const display = document.querySelector('.display')
-            const reset = document.createElement('button');
-            reset.textContent = 'Click here to reset';
-            reset.id = 'reset';
+            const display = document.querySelector('.display');
+            const resetBottom = document.querySelector('#reset');
+            display.removeChild(resetBottom);
+
+            const resetTop = document.createElement('button');
+            resetTop.textContent = 'Click here to reset';
+            resetTop.id = 'reset';
             const heading = document.querySelector('.heading');
             display.removeChild(heading);
-            display.insertBefore(reset, display.firstChild);
+            display.insertBefore(resetTop, display.firstChild);
             
             const result = document.createElement('div');
             result.classList = 'result';
@@ -108,9 +111,10 @@ const displayController = (function () {
             result.appendChild(resultHeading);
             
             reset.addEventListener('click', () => {
-                display.removeChild(reset);
+                display.removeChild(resetTop);
                 display.removeChild(result);
                 display.insertBefore(heading, display.firstChild);
+                display.appendChild(resetBottom);
                 game.reset();
             });
         }
@@ -140,6 +144,10 @@ const game = (function () {
     let _currentPlayer = playerOne;
 
     const play = function () {
+        document
+            .querySelector('#reset')
+            .addEventListener('click', () => game.reset())
+
         for (let i = 1; i <= 3; i++) {
             for (let j = 1; j <= 3; j++) {
                 let grid = document.querySelector(`#row-${i}-col-${j}`);

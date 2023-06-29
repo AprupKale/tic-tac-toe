@@ -34,6 +34,7 @@ body {
     background-color: #26547c;
     width: 45%;
     height: 60vh;
+    margin-top: 5vh;
     margin-left: 27.5%;
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
@@ -54,6 +55,7 @@ body {
 .result {
     background-color: #06d6a0;
     width: 45%;
+    margin-top: 5vh;
     margin-left: 27.5%;
     padding: 3vh 0;
 }
