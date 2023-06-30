@@ -13,7 +13,6 @@ const gameBoard = (function () {
         } else if (checkTie()) {
             _status = 'Tie';
         }
-        console.log(_board);
         return true;
     }
 
@@ -106,7 +105,9 @@ const displayController = (function () {
             const result = document.createElement('div');
             result.classList = 'result';
             const resultHeading = document.createElement('h1');
-            resultHeading.textContent = gameBoard.getStatus();
+            resultHeading.textContent = gameBoard.getStatus() === 'X wins'
+                ? playerOne.getName() + ' wins'
+                : playerTwo.getName() + ' wins';
             display.appendChild(result);
             result.appendChild(resultHeading);
             
@@ -125,6 +126,7 @@ const displayController = (function () {
 
 const player = function (mark) {
     let _mark = mark;
+    let _name = '';
 
     const move = function (row, col) {
         return gameBoard.markPosition(row, col, this);
@@ -134,7 +136,17 @@ const player = function (mark) {
         return _mark;
     }
 
-    return { move, getMark };
+    const getName = function () {
+        return _name === ''
+            ? _mark
+            : _name;
+    }
+
+    const setName = function (name) {
+        _name = name;
+    }
+
+    return { move, getMark, setName, getName };
 }
 
 const playerOne = player('X');
@@ -147,6 +159,14 @@ const game = (function () {
         document
             .querySelector('#reset')
             .addEventListener('click', () => game.reset())
+        
+        document
+            .querySelector('#playerOne')
+            .addEventListener('change', e => playerOne.setName(e.target.value));
+
+        document
+            .querySelector('#playerTwo')
+            .addEventListener('change', e => playerTwo.setName(e.target.value));
 
         for (let i = 1; i <= 3; i++) {
             for (let j = 1; j <= 3; j++) {
@@ -165,6 +185,8 @@ const game = (function () {
 
     const reset = function () {
         _currentPlayer = playerOne;
+        document.querySelector('#playerOne').value = '';
+        document.querySelector('#playerTwo').value = '';
         gameBoard.reset();
         displayController.update();
     }

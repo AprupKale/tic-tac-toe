@@ -75,3 +75,29 @@ body {
     font-size: calc(calc(3vw + 5vh) / 2);
     text-align: center;
 }
+
+.input {
+    background-color: #ef476f;
+    width: 24%;
+    padding: 3vh 3%;
+    box-sizing: border-box;
+}
+
+#playerOneInput {
+    position: fixed;
+    top: 40vh;
+    left: 2.5%;
+}
+
+#playerTwoInput {
+    position: fixed;
+    top: 40vh;
+    right: 2.5%;
+}
+
+.input > input {
+    width: 80%;
+    height: 4ch;
+    padding: 0 1ch;
+    font-size: calc(calc(3vw + 5vh) / 4);;
+}
