@@ -105,9 +105,9 @@ const displayController = (function () {
             const result = document.createElement('div');
             result.classList = 'result';
             const resultHeading = document.createElement('h1');
-            if (resultHeading.textContent === playerOne.getMark() + ' wins') 
+            if (gameBoard.getStatus() === playerOne.getMark() + ' wins') 
                 resultHeading.textContent = playerOne.getName() + ' wins';
-            else if (resultHeading.textContent === playerTwo.getMark() + ' wins') 
+            else if (gameBoard.getStatus() === playerTwo.getMark() + ' wins') 
                 resultHeading.textContent = playerTwo.getName() + ' wins';
             else resultHeading.textContent = 'Tie';
             display.appendChild(result);
